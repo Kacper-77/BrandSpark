@@ -52,7 +52,7 @@ def generate_image_3(api_key, prompt):
 
 
 def generate_spot(api_key, user_text):
-    openai.api_key=api_key
+    openai.api_key = api_key
     messages = [
         {"role": "system", "content": "Jesteś ekspertem od spraw marketingu tworzysz chwytliwe spoty marketingowe które zapadają na długo w pamięci"},
         {"role": "user", "content": f"Na podstawie opisu użytkownika stwórz chwytliwy spot marketingowy, może być krótki, ale konkretny i treściwy oraz wymyśl trzy hasła marketingowe. Oto opis{user_text}"},
@@ -112,14 +112,12 @@ with c1:
                     st.session_state["images"] = (
                         generate_image_1(st.session_state["api_key"], st.session_state["generated_plan"]),
                     )
-                    st.rerun()
 
                 if option == 2:
                     st.session_state["images"] = (
                         generate_image_1(st.session_state["api_key"], st.session_state["generated_plan"]),
                         generate_image_2(st.session_state["api_key"], st.session_state["generated_plan"])
                     )
-                    st.rerun()
 
                 if option == 3:
                     st.session_state["images"] = (
@@ -127,7 +125,6 @@ with c1:
                         generate_image_2(st.session_state["api_key"], st.session_state["generated_plan"]),
                         generate_image_3(st.session_state["api_key"], st.session_state["generated_plan"])
                     )
-                    st.rerun()
 
                 spot = generate_spot(st.session_state["api_key"], description)
                 st.session_state["spot"] = spot
